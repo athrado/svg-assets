@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Conversation Transcript</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color:#fffff /*#f0f2f5;*/
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .header {
+      background-color: #1D70B8;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 10px 10px 0 0;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+    .header p {
+      margin: 4px 0 0;
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+.legend {
+  background-color: white;
+  border-left: 4px solid #1D70B8;
+  padding: 14px 18px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 25px;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.2;
+  gap: 0;          /* no gap at all */
+  padding: 0;      /* no padding */
+  margin: 0;
+}
+
+.legend-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+  border: 2px solid white;
+  transform: translateY(1px);
+  margin-right: -4px; /* no margin */
+margin-left: 0px; /* no margin */
+}
+
+
+.dot-anger {
+  background-color: #e60000;
+}
+.dot-distress {
+  background-color: #ff8c00;
+}
+.dot-resignation {
+  background-color: #1e90ff;
+}
+.dot-confusion {
+  background-color: #800080;
+}
+
+
+    .legend span {
+      display: inline-block;
+      margin-right: 15px;
+    }
+
+    .legend .color {
+      width: 12px;
+      height: 12px;
+      display: inline-block;
+      border-radius: 50%;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+
+
+
+    .container {
+      background-color: white;
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+      padding: 20px;
+    }
+
+    .message {
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin-bottom: 14px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .agent {
+      background-color: #fdfdfd
+;
+      border: 1px solid #e0e0e0;
+    }
+
+    .user {
+      background-color: #f5f5f5;
+      border: 1px solid #dcdcdc;
+    }
+
+    .user strong {
+      color: #00BCB5;
+    }
+
+    .agent strong {
+      color: #1D70B8;
+    }
+
+    .highlight {
+      border-radius: 5px;
+      padding: 2px 6px;
+      display: inline-block;
+    }
+
+    .anger {
+      background-color: rgba(255, 0, 0, 0.15);
+      color: #8b0000;
+    }
+
+    .distress {
+      background-color: rgba(255, 165, 0, 0.15);
+      color: #b34700;
+    }
+
+    .resignation {
+      background-color: rgba(30, 144, 255, 0.15);
+      color: #005d99;
+    }
+
+    .confusion {
+      background-color: rgba(128, 0, 128, 0.15);
+      color: #4b006e;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Conversation Transcript</h1>
+    <p>Wednesday, 16 July 2025 23:58</p>
+  </div>
+
+<div class="legend">
+  <strong style="margin-right: 10px;">Emotion Key:</strong>
+
+  <div class="legend-item">
+    <span class="legend-dot dot-anger"></span> Anger
+  </div>
+  <div class="legend-item">
+    <span class="legend-dot dot-distress"></span> Distress
+  </div>
+  <div class="legend-item">
+    <span class="legend-dot dot-resignation"></span> Resignation
+  </div>
+  <div class="legend-item">
+    <span class="legend-dot dot-confusion"></span> Confusion
+  </div>
+</div>
+
+  <div class="container">
+<div class="message user"><strong>User: </strong>I haven't received my payment</div>
+<div class="message agent"><strong>Debbie:  </strong>Hi . My name is Debbie from the D W P. How can I help you today?</div>
+<div class="message user"><strong>User: </strong>I haven't received my payment</div>
+<div class="message agent"><strong>Debbie:  </strong>Let me take a look at your claim... Okay. I can see a sanction has been applied as of July 9th due to a missed appointment at the Jobcentre on July 3rd. It also looks like we were expecting a Fit Note from you by July 5th, which hasn’t been uploaded.</div>
+<div class="message user"><strong>User: </strong>What, a sanction? <span class='highlight confusion'>What are you talking about</span>?</div>
+<div class="message agent"><strong>Debbie:  </strong>It is all logged in your journal. You had a scheduled appointment marked as mandatory, which you missed and we didn't hear from you.</div>
+<div class="message user"><strong>User: </strong><span class='highlight anger'>That’s not fair</span>! I was ill that week — I coukdn;t get out of bed, And now you’re cutting off my money?!"</div>
+<div class="message agent"><strong>Debbie:  </strong>I'm sorry to hear you've been unwell. But under the guidelines, if you’re unwell, you need to either call us or upload a Fit Note. Uf you're still unwell, uploading a current Fit Note can help us reassess things.</div>
+<div class="message user"><strong>User: </strong><span class='highlight distress'>I can't take</span> this anymore, How can I feed my children like this?</div>
+<div class="message agent"><strong>Debbie:  </strong>I'm really sorry, I know this must be hard. We're here to help.</div>
+<div class="message user"><strong>User: </strong>Well, this sounds more like <span class='highlight resignation'>I'll have to sort it myself</span>.</div>
+<div class="message agent"><strong>Debbie:  </strong>I understand that this is a difficult situation. Let me direct you to one of my human colleagues so they can help you find the best solution for your situation.</div>
+  </div>
+</body>
+</html>
+
+
+
