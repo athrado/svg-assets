@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Conversation Transcript</title>
+  <style>
+    /* [Same styles you already provided] */
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color: #f0f2f5;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+    .header {
+      background-color: #1D70B8;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 10px 10px 0 0;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+    .header p {
+      margin: 4px 0 0;
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    .legend {
+      background-color: white;
+      border-left: 4px solid #1D70B8;
+      padding: 14px 18px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+      font-size: 14px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 25px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      color: #333;
+      line-height: 1.2;
+      gap: 0;
+      padding: 0;
+      margin: 0;
+    }
+    .legend-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+      border: 2px solid white;
+      transform: translateY(1px);
+      margin-right: -4px;
+      margin-left: 0px;
+    }
+    .dot-anger { background-color: #e60000; }
+    .dot-distress { background-color: #ff8c00; }
+    .dot-resignation { background-color: #1e90ff; }
+    .dot-confusion { background-color: #800080; }
+
+    .container {
+      background-color: white;
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+      padding: 20px;
+    }
+
+    .message {
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin-bottom: 14px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .agent {
+      background-color: #fdfdfd;
+      border: 1px solid #e0e0e0;
+    }
+
+    .user {
+      background-color: #f5f5f5;
+      border: 1px solid #dcdcdc;
+    }
+
+    .user strong { color: #00BCB5; }
+    .agent strong { color: #1D70B8; }
+
+    .highlight {
+      border-radius: 5px;
+      padding: 2px 6px;
+      display: inline-block;
+    }
+
+    .anger {
+      background-color: rgba(255, 0, 0, 0.15);
+      color: #8b0000;
+    }
+    .distress {
+      background-color: rgba(255, 165, 0, 0.15);
+      color: #b34700;
+    }
+    .resignation {
+      background-color: rgba(30, 144, 255, 0.15);
+      color: #005d99;
+    }
+    .confusion {
+      background-color: rgba(128, 0, 128, 0.15);
+      color: #4b006e;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Conversation Summary</h1>
+    <p id="datetime">Loading time...</p>
+  </div>
+
+  <div class="legend">
+    <strong style="margin-right: 10px;">Emotion Key:</strong>
+    <div class="legend-item"><span class="legend-dot dot-anger"></span> Anger</div>
+    <div class="legend-item"><span class="legend-dot dot-distress"></span> Distress</div>
+    <div class="legend-item"><span class="legend-dot dot-resignation"></span> Resignation</div>
+    <div class="legend-item"><span class="legend-dot dot-confusion"></span> Confusion</div>
+  </div>
+
+  <div class="container" id="dialogue">
+    <p><em>Loading dialogue content...</em></p>
+  </div>
+
+  <script>
+    // 1. Set current datetime
+    const now = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+                      hour: '2-digit', minute: '2-digit' };
+    document.getElementById("datetime").textContent = now.toLocaleString('en-GB', options);
+
+    // 2. Inject HTML dialogue content from URL param
+    const params = new URLSearchParams(window.location.search);
+    const rawHTML = params.get("content");
+
+    if (rawHTML) {
+      const decoded = decodeURIComponent(rawHTML);
+      document.getElementById("dialogue").innerHTML = decoded;
+    } else {
+      document.getElementById("dialogue").innerHTML = "<p><em>No conversation content provided.</em></p>";
+    }
+  </script>
+</body>
+</html>
